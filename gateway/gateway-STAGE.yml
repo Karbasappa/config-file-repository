@@ -15,11 +15,6 @@ spring:
               args:
                name: sab-exceed-services
                fallbackUri: forward:/serviceUnavailableFallback
-
-       - id: app-info-route
-         uri: lb://sab-exceed-services
-         predicates:
-           - Path=/app/**
     discovery:
       enabled: true
 
