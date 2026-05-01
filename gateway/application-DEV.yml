@@ -42,6 +42,8 @@ resilience4j:
         permittedNumberOfCallsInHalfOpenState: 3
 
 logging:
+  file:
+    name: logs/gateway.log
   level:
     root: INFO
     org.springframework.cloud.gateway: TRACE
