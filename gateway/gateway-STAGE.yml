@@ -10,6 +10,7 @@ spring:
          predicates:
             - Path=/user/test/**
          filters:
+            - name: AuthenticationFilter
             - name: CircuitBreaker
               args:
                name: sab-exceed-services
