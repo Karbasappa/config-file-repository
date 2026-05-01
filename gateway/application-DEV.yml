@@ -12,7 +12,7 @@ spring:
         - id: sab-exceed-services
           uri: lb://sab-exceed-services
           predicates:
-            - Path=/user/test/**
+            - Path=/user/**
           filters:
             - name: AuthenticationFilter
             - name: CircuitBreaker
