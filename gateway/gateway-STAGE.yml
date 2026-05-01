@@ -2,6 +2,10 @@ env: STAGE
 spring:
   application:
     name: gateway
+  security:
+    user:
+      name: admin
+      password: admin
   cloud:
     gateway:
       routes:
