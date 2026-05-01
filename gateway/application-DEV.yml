@@ -40,3 +40,21 @@ resilience4j:
         failureRateThreshold: 50
         waitDurationInOpenState: 10000ms # 10 seconds before trying again
         permittedNumberOfCallsInHalfOpenState: 3
+
+logging:
+  level:
+    root: INFO
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.security: DEBUG
+    com.sabtok.gateway: DEBUG
+management:
+  health:
+    circuitbreakers:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: 'health,circuitbreakers,circuitbreakerevents'
+  endpoint:
+    health:
+      show-details: always # Vital to see individual breaker statuses
