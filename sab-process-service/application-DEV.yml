@@ -44,3 +44,11 @@ eureka:
     register-with-eureka: true
     service-url.defaultZone: http://localhost:8761/eureka
 
+sab:
+  info:
+    service:
+      url: http://laptop-paulleg2:8080/sab-info-services-5
+  exceed:
+    service:
+      url: http://laptop-paulleg2:5001
+
