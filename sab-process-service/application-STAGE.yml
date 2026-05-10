@@ -55,7 +55,7 @@ sab:
     type: redis
     data:
       redis:
-        host: host.docker.internal  # Change to host.docker.internal if the client is also in Docker
+        host: redis  # Change to host.docker.internal if the client is also in Docker
         port: 6379
         connection-timeout: 500ms
         time-to-live: 500ms
