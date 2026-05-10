@@ -34,8 +34,7 @@ management:
   endpoints:
     web:
       exposure:
-        #include: 'health,info,threaddump,metrics,loggers,heapdump'
-        include: '*'
+        include: 'health,info,threaddump,metrics,loggers,heapdump'
   endpoint:
     health:
       show-details: always
@@ -64,4 +63,7 @@ sab:
         use-key-prefix: true
         #key-prefix: sab-process-service:
         lettuce:
-          shutdown-timeout: 200ms
+         shutdown-timeout: 200ms
+      
+      
+
