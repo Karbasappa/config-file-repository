@@ -34,8 +34,8 @@ management:
   endpoints:
     web:
       exposure:
-        #include: '*'
-        include: 'health,info,threaddump,metrics,loggers,heapdump'
+        include: '*'
+        #include: 'health,info,threaddump,metrics,loggers,heapdump'
   endpoint:
     health:
       show-details: always
