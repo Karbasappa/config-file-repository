@@ -13,10 +13,10 @@ spring:
         period: 10s
         instance:
           #name: ${spring.application.name}
-          hostname: localhost
-          service-url: http://sab-process-service:5002/
-        prefer-ip-address: true
-        service-host-type: ip
+          #hostname: localhost
+          service-base-url: http://sab-process-service:8081/
+        prefer-ip: true
+        #service-host-type: ip
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
