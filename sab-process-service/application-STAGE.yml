@@ -42,6 +42,14 @@ eureka:
   client:
     register-with-eureka: true
     service-url.defaultZone: http://registry:8761/eureka
+
+sab:
+  info:
+    service:
+      url: http://host.docker.internal:8080/sab-info-services-5
+  exceed:
+    service:
+      url: http://host.docker.internal:5001
       
       
 
