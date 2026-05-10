@@ -34,7 +34,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: 'health,info,threaddump,metrics,loggers,heapdump'
+        include: '*'
   endpoint:
     health:
       show-details: always
@@ -52,3 +52,21 @@ sab:
     service:
       url: http://laptop-paulleg2:5001
 
+  cache:
+    type: redis
+    data:
+      redis:
+        host: host.docker.internal  # Change to host.docker.internal if the client is also in Docker
+        port: 6379
+        connection-timeout: 500ms
+        time-to-live: 500ms
+        pool:
+          max-active: 10
+          max-idle: 5
+          min-idle: 1
+          max-wait: 500ms
+        cache-null-values: false
+        use-key-prefix: true
+          #key-prefix: sab-process-service:
+          #lettuce:
+        #shutdown-timeout: 200ms
