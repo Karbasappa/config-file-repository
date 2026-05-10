@@ -9,7 +9,7 @@ spring:
     admin:
       client:
         enabled: true
-        url: http://localhost:9001
+        url: http://sab-dashboard-service:9001
         period: 10s
         instance:
           #name: ${spring.application.name}
