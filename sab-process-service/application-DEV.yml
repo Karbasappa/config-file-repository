@@ -13,9 +13,9 @@ spring:
         period: 10s
         instance:
           #name: ${spring.application.name}
-          hostname: localhost
-          service-url: http://localhost:8081/
-        prefer-ip-address: true
+          #hostname: localhost
+          service-base-url: http://host.docker.internal:8081
+        #prefer-ip-address: true
         service-host-type: ip
 
   datasource:
