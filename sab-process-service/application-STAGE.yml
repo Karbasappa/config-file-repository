@@ -14,7 +14,7 @@ spring:
         instance:
           #name: ${spring.application.name}
           hostname: localhost
-          service-url: http://localhost:8081/
+          service-url: http://sab-process-service:5002/
         prefer-ip-address: true
         service-host-type: ip
 
