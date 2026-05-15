@@ -15,6 +15,7 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 
   kafka:
+    enabled: true
     bootstrap-servers: localhost:29092
     consumer:
       auto-offset-reset: earliest
