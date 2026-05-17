@@ -19,10 +19,16 @@ spring:
         service-host-type: ip
 
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    url: jdbc:mysql://localhost:3306/z_dev-sabtok-1
-    password: admin1
+    primary:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      url: jdbc:mysql://localhost:3306/z_dev-sabtok-1
+      password: admin1
+    secondary:
+      url: jdbc:mysql://localhost:3306/z_dev_sabwiki
+      username: root
+      password: admin1
+      driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
       ddl-auto: update
@@ -43,6 +49,8 @@ eureka:
   client:
     register-with-eureka: true
     service-url.defaultZone: http://localhost:8761/eureka
+    hostname: sab-process-service
+    prefer-ip-address: false
 
 sab:
   info:
@@ -67,6 +75,6 @@ sab:
           max-wait: 500ms
         cache-null-values: false
         use-key-prefix: true
-          #key-prefix: sab-process-service:
-          #lettuce:
+        #key-prefix: sab-process-service:
+        #lettuce:
         #shutdown-timeout: 200ms
