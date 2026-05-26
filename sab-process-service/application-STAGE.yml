@@ -2,6 +2,8 @@ env:
   name: STAGE
 server:
   port: 8081
+  servlet:
+    context-path: /process
 spring:
   application:
     name: sab-process-service
