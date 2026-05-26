@@ -1,3 +1,5 @@
+env:
+  name: DEV
 spring:
   application:
     name: sab-notification-service
