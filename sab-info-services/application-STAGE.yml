@@ -1,62 +1,58 @@
-env:
-  name: STAGE
+env: STAGE
+server:
+  error:
+    include-stacktrace: NEVER
+  port: 8081
+  servlet:
+    context-path: /wiki
 spring:
   application:
-    name: sab-notification-service
-
-  datasource:
-    #driver-class-name: org.postgresql.Driver
-    password: password
-    url: jdbc:postgresql://db-postgres:5432/exampledb
-    username: postgres
+    name: sab-info-services
+  boot:
+    main:
+      banner-mode: on
+    admin:
+      client:
+        enable: true
+        url: http://localhost:9091
+        period: 10s
+        instance:
+          #name: ${spring.application.name}
+          #hostname: localhost
+          service-base-url: http://host.docker.internal:8081
+        #prefer-ip-address: true
+        service-host-type: ip
   jpa:
+    generate-ddl: 'true'
     hibernate:
       ddl-auto: update
-    show-sql: true
-    #dialect: org.hibernate.dialect.PostgreSQLDialect
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-
-  kafka:
-    originator: ${spring.application.name}
-    enabled: true
-    bootstrap-servers: kafka:29092
-    consumer:
-      auto-offset-reset: earliest
-      group-id: sab-notification-service
-      enable-auto-commit: true
-      retry-interval: 1000
-      number-of-retries: 1
-      concurrency: 4
-      max-poll-records: 10
-      handleRetry: true
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      topics-to-subscribe:
-        sab-event:
-          enabled: true
-          topic: sab-event
-          process-type: test
-    producer:
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      topics-to-publish:
-        alert-process-topic:
-          enabled: true
-          topics: alert-process-topic
-    payload:
-      encryptionEnabled: false
-      encryptionKey:
-server:
-  port: 8081
-
-eureka: 
-  client: 
-    register-with-eureka: true
-    service-url.defaultZone: http://registry:8761/eureka
-  
-
+  main:
+    banner-mode: log
+  datasource:
+    tomcat:
+      initialSize: '20'
+      max-active: '25'
+    password: admin1
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/stage_sabwiki
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+linkage:
+  scheduler:
+    user:
+      story:
+        cron: 0 */5 * ? * *
+    incident:
+      cron: 0 */5 * ? * *
+feign:
+  client:
+    exceed:
+      url: http://laptop-paulleg2:5001
+    plm:
+      url: http://laptop-paulleg2:8080/sab-plm-services-2.6
 logging:
-  level:
-    org:
-      apache:
-        kafka: 'OFF'
+  path: logs
+  file: logs/mylog.log
