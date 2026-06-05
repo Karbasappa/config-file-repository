@@ -1,0 +1,54 @@
+env: dev
+spring:
+  jpa:
+    generate-ddl: 'true'
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    show-sql: 'true'
+  main:
+    banner-mode: log
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    tomcat:
+      initialSize: '20'
+      max-active: '25'
+    password: admin1
+    username: root
+    url: jdbc:mysql://localhost:3306/z_dev_sabwiki
+  application:
+    name: sab-info-services
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+linkage:
+  scheduler:
+    user:
+      story:
+        cron: 0 0 * * * *
+    incident:
+      cron: 0 0 * * * *
+server:
+  error:
+    include-stacktrace: NEVER
+  port: '8082'
+logging:
+  file: logs/mylog.log
+  path: logs
+debug: 'true'
+security:
+  basic:
+    enabled: 'false'
+  user:
+    password: admin
+    name: admin
+feign:
+  client:
+    exceed:
+      url: http://laptop-paulleg2:5001
+    plm:
+      url: http://laptop-paulleg2:8080/sab-plm-services-2.6
+cross-origin: '*'

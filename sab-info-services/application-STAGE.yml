@@ -1,0 +1,62 @@
+env:
+  name: STAGE
+spring:
+  application:
+    name: sab-notification-service
+
+  datasource:
+    #driver-class-name: org.postgresql.Driver
+    password: password
+    url: jdbc:postgresql://db-postgres:5432/exampledb
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    #dialect: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  kafka:
+    originator: ${spring.application.name}
+    enabled: true
+    bootstrap-servers: kafka:29092
+    consumer:
+      auto-offset-reset: earliest
+      group-id: sab-notification-service
+      enable-auto-commit: true
+      retry-interval: 1000
+      number-of-retries: 1
+      concurrency: 4
+      max-poll-records: 10
+      handleRetry: true
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      topics-to-subscribe:
+        sab-event:
+          enabled: true
+          topic: sab-event
+          process-type: test
+    producer:
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      topics-to-publish:
+        alert-process-topic:
+          enabled: true
+          topics: alert-process-topic
+    payload:
+      encryptionEnabled: false
+      encryptionKey:
+server:
+  port: 8081
+
+eureka: 
+  client: 
+    register-with-eureka: true
+    service-url.defaultZone: http://registry:8761/eureka
+  
+
+logging:
+  level:
+    org:
+      apache:
+        kafka: 'OFF'
