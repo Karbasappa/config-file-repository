@@ -8,6 +8,20 @@ server:
 spring:
   application:
     name: sab-info-services
+  boot:
+    main:
+      banner-mode: on
+    admin:
+      client:
+        enable: true
+        url: http://localhost:9091
+        period: 10s
+        instance:
+          #name: ${spring.application.name}
+          #hostname: localhost
+          service-base-url: http://host.docker.internal:8081
+        #prefer-ip-address: true
+        service-host-type: ip
   jpa:
     generate-ddl: 'true'
     hibernate:
