@@ -14,12 +14,12 @@ spring:
     admin:
       client:
         enable: true
-        url: http://localhost:9091
+        url: http://sab-dashboard-service:9091
         period: 10s
         instance:
           #name: ${spring.application.name}
           #hostname: localhost
-          service-base-url: http://host.docker.internal:8081
+          service-base-url: http://sab-info-services:8081
         #prefer-ip-address: true
         service-host-type: ip
   jpa:
@@ -35,7 +35,7 @@ spring:
     password: admin1
     driver-class-name: com.mysql.jdbc.Driver
     username: root
-    url: jdbc:mysql://localhost:3306/stage_sabwiki
+    url: jdbc:mysql://host.docker.internal:3306/sabwiki_production_01_oct_2023
   servlet:
     multipart:
       max-file-size: 50MB
@@ -50,9 +50,9 @@ linkage:
 feign:
   client:
     exceed:
-      url: http://laptop-paulleg2:5001
+      url: http://host.docker.internal:5001
     plm:
-      url: http://laptop-paulleg2:8080/sab-plm-services-2.6
+      url: http://host.docker.internal:8080/sab-plm-services-2.6
 logging:
   path: logs
   file: logs/mylog.log
