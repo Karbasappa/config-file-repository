@@ -23,16 +23,11 @@ spring:
         service-host-type: ip
 
   datasource:
-    primary:
       driver-class-name: com.mysql.cj.jdbc.Driver
       username: root
       url: jdbc:mysql://host.docker.internal:3306/z_dev-sabtok-1
       password: admin1
-    secondary:
-      url: jdbc:mysql://host.docker.internal:3306/z_dev_sabwiki
-      username: root
-      password: admin1
-      driver-class-name: com.mysql.cj.jdbc.Driver
+
   jpa:
     hibernate:
       ddl-auto: update
