@@ -70,7 +70,7 @@ cache:
   type: redis
   data:
     redis:
-      host: redis  # Change to host.docker.internal if the client is also in Docker
+      host: host.docker.internal  # Change to host.docker.internal if the client is also in Docker
       port: 6379
       connection-timeout: 500ms
       time-to-live: 500ms
@@ -84,3 +84,8 @@ cache:
       #key-prefix: sab-process-service:
       #lettuce:
       #shutdown-timeout: 200ms
+
+eureka:
+  client:
+    register-with-eureka: true
+    service-url.defaultZone: http://registry:8761/eureka
