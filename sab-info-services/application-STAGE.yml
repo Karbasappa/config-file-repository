@@ -40,6 +40,18 @@ spring:
     multipart:
       max-file-size: 50MB
       max-request-size: 50MB
+
+  redis:
+    host: redis          # Use 'localhost' for local development or 'redis' for Docker networks
+    port: 6379           # Standard default Redis communication port
+    password:            # Leave blank if no password is set on your Redis instance
+    timeout: 2000ms      # Socket connection timeout duration
+    lettuce:
+      pool:
+        max-active: 8    # Maximum number of active connections in the pool
+        max-idle: 8      # Maximum number of idle connections in the pool
+        min-idle: 0      # Minimum number of idle connections to maintain
+        max-wait: -1ms   # Maximum time to wait for a connection (negative means block indefinitely)
 linkage:
   scheduler:
     user:
@@ -65,25 +77,6 @@ management:
   endpoint:
     health:
       show-details: always
-
-cache:
-  type: redis
-  data:
-    redis:
-      host: http://host.docker.internal # Change to host.docker.internal if the client is also in Docker
-      port: 6379
-      connection-timeout: 500ms
-      time-to-live: 500ms
-      pool:
-        max-active: 10
-        max-idle: 5
-        min-idle: 1
-        max-wait: 500ms
-      cache-null-values: false
-      use-key-prefix: true
-      #key-prefix: sab-process-service:
-      #lettuce:
-      #shutdown-timeout: 200ms
 
 eureka:
   client:
