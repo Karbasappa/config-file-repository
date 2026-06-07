@@ -4,7 +4,7 @@ server:
     include-stacktrace: NEVER
   port: 8081
   servlet:
-    context-path: /wiki
+    context-path: /sab-info-services-5
 spring:
   application:
     name: sab-info-services
