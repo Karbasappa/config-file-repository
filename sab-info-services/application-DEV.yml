@@ -78,7 +78,7 @@ management:
       show-details: always
 
 cache:
-  type: redis
+  type: none
   data:
     redis:
       host: host.docker.internal  # Change to host.docker.internal if the client is also in Docker
