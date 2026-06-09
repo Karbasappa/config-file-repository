@@ -19,6 +19,16 @@ spring:
               args:
                name: sab-exceed-services
                fallbackUri: forward:/serviceUnavailableFallback
+       - id: sab-info-services
+         uri: lb://sab-info-services
+         predicates:
+           - Path=/sab-info-services-5/**
+         filters:
+           - name: AuthenticationFilter
+           - name: CircuitBreaker
+             args:
+               name: sab-info-services
+               fallbackUri: forward:/serviceUnavailableFallback
     discovery:
       enabled: true
 
