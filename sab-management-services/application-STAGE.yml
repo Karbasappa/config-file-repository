@@ -66,3 +66,7 @@ diabetic:
     value: '68'
 fileRootPath: C:\sabtok-file-demo
 exceed-url: http://localhost:8082/user/list
+eureka:
+  client:
+    register-with-eureka: true
+    service-url.defaultZone: http://registry:8761/eureka
