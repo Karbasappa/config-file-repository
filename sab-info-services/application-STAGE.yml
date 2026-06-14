@@ -66,8 +66,11 @@ feign:
     plm:
       url: http://host.docker.internal:8080/sab-plm-services-2.6
 logging:
-  path: logs
-  file: logs/mylog.log
+  structured:
+    format: ecs # Generates machine-readable JSON logs [2]
+  file:
+    name: logs/application.log
+    path: logs
 cross-origin: '*'
 management:
   endpoints:

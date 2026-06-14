@@ -52,8 +52,11 @@ linkage:
     incident:
       cron: 0 0 * * * *
 logging:
-  file: logs/mylog.log
-  path: logs
+  structured:
+    format: ecs # Generates machine-readable JSON logs [2]
+  file:
+    name: logs/application.log
+    path: logs
 debug: 'true'
 security:
   basic:
