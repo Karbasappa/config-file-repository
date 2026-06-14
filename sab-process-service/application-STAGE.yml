@@ -26,10 +26,10 @@ spring:
     primary:
       driver-class-name: com.mysql.cj.jdbc.Driver
       username: root
-      url: jdbc:mysql://localhost:3306/z_dev-sabtok-1
+      url: jdbc:mysql://host.docker.internal:3306/z_dev-sabtok-1
       password: admin1
     secondary:
-      url: jdbc:mysql://localhost:3306/z_dev_sabwiki
+      url: jdbc:mysql://host.docker.internal:3306/z_dev_sabwiki
       username: root
       password: admin1
       driver-class-name: com.mysql.cj.jdbc.Driver
