@@ -1,7 +1,7 @@
 env: DEV
 server:
   port: '8081'
-  servlet:
+  #servlet:
     #context-path: /sabtok
 spring:
   application:
