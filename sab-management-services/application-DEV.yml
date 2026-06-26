@@ -33,7 +33,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     password: admin1
     username: root
-    url: jdbc:mysql://localhost:3306/z_questioneries-test2
+    url: jdbc:mysql://localhost:3306/z_questioneries-test3
 management:
   endpoints:
     web:
@@ -42,13 +42,13 @@ management:
 plm-url: http://laptop-paulleg2:8080/sab-plm-services-2.6/issue/list
 scheduler:
   phase-scheduler:
-    cron: 0 0/10 * * * *
+    cron: 0 0/50 * * * *
   review-request-processor:
-    cron: 0 0/10 * * * *
+    cron: 0 0/50 * * * *
   phase-initiator-risk-calculator:
-    cron: 0 0/10 * * * *
+    cron: 0 0/50 * * * *
   phase-initiator-review:
-    cron: 0 0/10 * * * *
+    cron: 0 0/50 * * * *
 tsh:
   threshold:
     value: '68'
