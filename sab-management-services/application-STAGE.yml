@@ -2,7 +2,7 @@ env: DEV
 server:
   port: '8081'
   servlet:
-    context-path: /sabtok
+    #context-path: /sabtok
 spring:
   application:
     name: sab-management-services
